@@ -5,6 +5,13 @@ class Users extends Component {
         return (
             <div>
                 <span>Users component</span>
+                <ul>
+                    <li>userItem</li>
+                    <li>userItem</li>
+                    <li>userItem</li>
+                    <li>userItem</li>
+                    <li>userItem</li>
+                </ul>
             </div>
         );
     }

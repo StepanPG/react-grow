@@ -1,0 +1,23 @@
+.inputForm-component{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.inputForm__form{
+	display: flex;
+	flex-direction: column;
+}
+
+.form-inputs{
+	display: flex;
+}
+
+.form-inputs__inputs, .form-inputs__labels{
+	display: flex;
+	flex-direction: column;
+}
+
+.form-inputs__inputs input, .form-inputs__labels label {
+	margin: 10px;
+}

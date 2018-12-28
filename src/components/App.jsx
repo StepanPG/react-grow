@@ -10,8 +10,8 @@ class App extends Component {
         return (
             <Router>
                 <div>
-                    <nav>
-                        <ul className="navigation">
+                    <nav className="navigation">
+                        <ul className="navigation-list">
                             <li>
                                 <Link to="/">Home</Link>
                             </li>
@@ -26,7 +26,11 @@ class App extends Component {
 
                     <main>
                         <Route path="/" exact component={Home} />
-                        <Route path="/add" exact component={InputForm} />
+                        <Route
+                            path="/add"
+                            component={InputForm}
+                            addUser={this.handleUserAdding}
+                        />
                         <Route path="/users" component={Users} />
                     </main>
                 </div>
