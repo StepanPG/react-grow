@@ -1,17 +1,17 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import User from '../User';
 
 class Users extends Component {
     render() {
         return (
             <div>
-                <span>Users component</span>
-                <ul>
-                    <li>userItem</li>
-                    <li>userItem</li>
-                    <li>userItem</li>
-                    <li>userItem</li>
-                    <li>userItem</li>
-                </ul>
+                {this.props.users.map(user => (
+                    <User
+                        key={user.id}
+                        user={user}
+                        handleUserDeleting={this.props.handleUserDeleting}
+                    />
+                ))}
             </div>
         );
     }

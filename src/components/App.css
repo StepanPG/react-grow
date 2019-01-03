@@ -1,11 +1,11 @@
-.navigation{
-  box-sizing: border-box;
-  border-bottom: 1px solid #aaa;
+.navigation {
+    box-sizing: border-box;
+    border-bottom: 1px solid #aaa;
 }
 
-.navigation-list{
-  display: flex;
-  list-style: none;
-  justify-content: space-around;
-  box-sizing: border-box;
+.navigation-list {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    box-sizing: border-box;
 }
