@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import './InputForm.css';
+import { connect } from 'react-redux';
+import { addUserAction } from '../actions';
+import '../styles/UserForm.css';
 
-class InputForm extends Component {
+class UserForm extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            lastUserId: this.props.lastUserId,
             userName: '',
             userAge: '',
             userCountry: '',
@@ -14,26 +15,19 @@ class InputForm extends Component {
         };
     }
 
-    componentWillUnmount() {
-        this.props.updateLastUserId(this.state.lastUserId);
-    }
-
     handleSubmit = event => {
         event.preventDefault();
-        const nextUserId = this.state.lastUserId + 1;
-
-        this.props.addUser({
-            id: nextUserId,
+        const userToAdd = {
             name: this.state.userName,
             age: parseInt(this.state.userAge, 10) || 0,
             location: {
                 country: this.state.userCountry,
                 city: this.state.userCity,
             },
-        });
+        };
 
+        this.props.addUser(userToAdd);
         this.setState({
-            lastUserId: nextUserId,
             userName: '',
             userAge: '',
             userCountry: '',
@@ -57,7 +51,8 @@ class InputForm extends Component {
                 <form
                     action=""
                     className="inputForm__form"
-                    onSubmit={this.handleSubmit}>
+                    onSubmit={this.handleSubmit}
+                >
                     <div className="form-inputs">
                         <div className="form-inputs__labels">
                             <label htmlFor="userName">Name:</label>
@@ -110,4 +105,13 @@ class InputForm extends Component {
     }
 }
 
-export default InputForm;
+const mapDispatchToProps = dispatch => ({
+    addUser: user => {
+        dispatch(addUserAction(user));
+    },
+});
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(UserForm);

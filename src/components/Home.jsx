@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './Home.css';
+import { connect } from 'react-redux';
+import '../styles/Home.css';
 
 class Home extends Component {
     render() {
@@ -24,4 +25,8 @@ class Home extends Component {
     }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+    users: state.users,
+});
+
+export default connect(mapStateToProps)(Home);
