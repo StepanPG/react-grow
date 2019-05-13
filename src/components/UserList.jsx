@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import User from './User';
 import { connect } from 'react-redux';
+import { deleteUserAction } from '../actions';
 
 class UserList extends Component {
     render() {
@@ -26,10 +27,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     handleUserDelete: id => {
-        dispatch({
-            type: 'DELETE_USER',
-            id,
-        });
+        dispatch(deleteUserAction(id));
     },
 });
 
